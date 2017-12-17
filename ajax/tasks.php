@@ -11,7 +11,19 @@
 
     $stmt = $db->prepare("INSERT INTO tasks(user_id,name,checked,create_date,update_date) VALUES(:userID,:name,0,NOW(),NOW())");
     $stmt->execute(array(':userID' => $user_id,':name' => $name));
+
+    //return the task id
+    $task_id= $db->lastInsertId();
+
+    $query=$db->prepare("SELECT * FROM tasks where id = :taskID");
+    $query->execute(array(':taskID' => $task_id));
+    $row = $query->fetch();
     
+    $arr = array('id' => $row['id'], 'date' => $row['create_date']);
+    echo json_encode($arr);
+
+    $query=null;
+
   }
   elseif($action=='update_task'){
     $task_id=$_POST['task_id'];

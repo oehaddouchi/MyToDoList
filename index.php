@@ -1,10 +1,13 @@
 <?php 
+  session_start();
   require_once('include/header.php');
   require_once('connections/conn.php');
 ?>
 <link href="../css/login.css" rel="stylesheet">
 <div class="container">
-			<div class="row main">
+	<form id="form" action="http://ouafaehaddouchi.tk/tasks.php"  method="post">
+   <input type="hidden" name="user_id" id="user_id" value="<?php if(isset($_POST['user_id'])){ echo $_POST['user_id']; } ?>">
+    		<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
 	               		<h1 class="title">My ToDo List</h1>
@@ -50,7 +53,9 @@
 					</form>
 				</div>
 			</div>
+			</form>
 		</div>
+
 
 <?php 
   require_once('include/footer.php');

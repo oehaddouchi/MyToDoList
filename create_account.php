@@ -4,7 +4,9 @@
 ?>
 <link href="../css/login.css" rel="stylesheet">
 	<div class="container">
-			<div class="row main">
+			<form id="form" action="http://ouafaehaddouchi.tk/tasks.php"  method="post">
+   <input type="hidden" name="user_id" id="user_id" value="<?php if(isset($_POST['user_id'])){ echo $_POST['user_id']; } ?>">
+    		<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
 	               		<h1 class="title">My ToDo List</h1>
@@ -12,6 +14,14 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
+					<div id="formAlert" class="alert alert-warning" style="display:none;">  
+						<a class="close">×</a>  
+						<strong>Warning!</strong> <span>Make sure all fields are filled and try again.</span>
+					</div>
+					<div id="formError" class="alert alert-danger" style="display:none;">  
+						<a class="close">×</a>  
+						<strong>Error!</strong> <span id="error_msg"></span>
+					</div>
 					<form class="form-horizontal" method="post" action="#">
 						
 						<div class="form-group">
@@ -65,7 +75,7 @@
 						</div>
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							<button type="button" id="register" class="btn btn-primary btn-lg btn-block login-button">Register</button>
 						</div>
 						<div class="login-register">
 				            <a href="index.php">Login</a>
@@ -73,6 +83,7 @@
 					</form>
 				</div>
 			</div>
+			</form>
 		</div>
 
 

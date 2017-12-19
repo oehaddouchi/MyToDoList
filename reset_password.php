@@ -12,6 +12,10 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
+				<div id="formInfo" class="alert alert-info" style="display:none;">  
+						<a class="close">×</a> 
+						<span>Please check your inbox. Your email has been sent.</span>
+				</div>
 					<form class="form-horizontal" method="post" action="#">
 						
 						<div class="form-group">
@@ -26,7 +30,7 @@
 						</div>
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Reset password</button>
+							<button type="button" id="reset" class="btn btn-primary btn-lg btn-block login-button">Reset password</button>
 						</div>
 						<div class="login-register">
 				            <a href="index.php">Login</a>

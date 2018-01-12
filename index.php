@@ -48,7 +48,7 @@
 							<button id="sign_in" type="button"  class="btn btn-primary btn-lg btn-block login-button">Sign in</button>
 						</div>
 						<div class="login-register">
-				            <a href="create_account.php">Create account</a> or <a href="reset_password.php">reset password</a>
+				            <a href="create_account.php">Create account</a>
 				         </div>
 					</form>
 				</div>

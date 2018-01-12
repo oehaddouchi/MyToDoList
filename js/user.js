@@ -100,6 +100,10 @@ $("#reset").click(function() {
         // If its value is empty
         $("#formAlert").slideDown(400);  
     }
+    else if(!isValidEmailAddress(email)){
+         $("#error_msg").html('Unvalid email.');
+         $("#formError").slideDown(400);  
+    }
     else{
 
         var data ={'action':'reset','email':email};

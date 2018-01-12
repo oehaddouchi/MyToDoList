@@ -16,6 +16,10 @@
 						<a class="close">×</a> 
 						<span>Please check your inbox. Your email has been sent.</span>
 				</div>
+				<div id="formError" class="alert alert-danger" style="display:none;">  
+						<a class="close">×</a>  
+						<strong>Error!</strong> <span id="error_msg"></span>
+				</div>
 					<form class="form-horizontal" method="post" action="#">
 						
 						<div class="form-group">

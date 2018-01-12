@@ -62,7 +62,36 @@
         }  
     }
     
+      //send the email
+        
+        require_once('../lib/phpmailer/class.phpmailer.php');
 
+        $mail = new PHPMailer;
+
+        $mail->IsSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';                 // Specify main and backup server
+        $mail->Port = 587;                                    // Set the SMTP port
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'mytodolistwebapp@gmail.com';                // SMTP username
+        $mail->Password = '**************';                  // SMTP password
+        $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+
+        $mail->From = 'mytodolistwebapp@gmail.com';
+        $mail->FromName = 'MyToDoList';
+        $mail->AddAddress($email);     // Add a recipient        
+
+        $mail->IsHTML(true);                                  // Set email format to HTML
+
+        $mail->Subject = 'You signed up for MyToDoList!';
+        $mail->Body    = 'Hi '.$name.', You signed up for MyToDoList! This is your username: '.$username.'.';
+        $mail->AltBody = 'You signed up for MyToDoList!';
+
+        if(!$mail->Send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        exit;
+        }
+        
     $check_user_stmt=null;
 
     $insert_user_stmt = $db->prepare("INSERT INTO users(name,username,email,password,join_date) VALUES(:name,:username,:email,:password,NOW())");
